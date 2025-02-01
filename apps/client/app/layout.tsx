@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Nav } from "@repo/ui/nav";
+// import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-});
+// const geistSans = localFont({
+//   src: "./fonts/GeistVF.woff",
+//   variable: "--font-geist-sans",
+// });
+// const geistMono = localFont({
+//   src: "./fonts/GeistMonoVF.woff",
+//   variable: "--font-geist-mono",
+// });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,9 +24,28 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      {/* <body className={`${geistSans.variable} ${geistMono.variable}`}> */}
+      <body>
+        <Header />
         {children}
       </body>
     </html>
+  );
+}
+
+function Header() {
+  const items = [
+    { label: "概览", href: "/", active: true },
+    { label: "市场", href: "/markets" },
+    { label: "新闻", href: "/news" },
+    { label: "投资组合", href: "/portfolio" },
+  ];
+
+  return (
+    <Nav
+      items={items}
+      // logo={<img src="/logo.svg" alt="Logo" />}
+      // onSearch={(value) => console.log("搜索:", value)}
+    />
   );
 }
