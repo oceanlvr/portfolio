@@ -35,6 +35,7 @@
   "lint-staged": {
     "**/*.{js,ts,tsx}": [
       "pnpm run format",
+      "git add .",
       "pnpm run lint --"
     ]
   }
