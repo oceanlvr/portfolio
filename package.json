@@ -2,6 +2,7 @@
   "name": "portfolio",
   "private": true,
   "scripts": {
+    "commit": "git add . && commit",
     "prepare": "simple-git-hooks",
     "build": "turbo build",
     "dev": "turbo dev",
@@ -13,6 +14,8 @@
   "devDependencies": {
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
+    "@commitlint/prompt-cli": "^19.7.1",
+    "lint-staged": "^15.4.3",
     "prettier": "^3.4.2",
     "simple-git-hooks": "^2.11.1",
     "turbo": "^2.4.0",
@@ -24,7 +27,14 @@
     "pnpm": ">=9"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm run format && git add . && pnpm run lint",
+    "pre-commit": "pnpm lint-staged",
     "commit-msg": "pnpm commitlint --edit ${1}"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "pnpm run format",
+      "git add .",
+      "pnpm run lint --"
+    ]
   }
 }
