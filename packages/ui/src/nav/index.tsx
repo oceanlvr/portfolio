@@ -31,7 +31,7 @@ export const Nav = ({ items, logo, onSearch }: NavProps) => {
         </div>
       </div>
       <div className="nav-right">
-        {/* {onSearch && (
+        {onSearch && (
           <div className="nav-search">
             <input
               type="text"
@@ -39,7 +39,7 @@ export const Nav = ({ items, logo, onSearch }: NavProps) => {
               onChange={(e) => onSearch(e.target.value)}
             />
           </div>
-        )} */}
+        )}
       </div>
     </nav>
   );

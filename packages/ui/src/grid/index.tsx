@@ -1,6 +1,6 @@
 "use client";
 import { Responsive, WidthProvider, Layouts } from "react-grid-layout";
-import _ from "lodash";
+// import _ from "lodash";
 import "react-grid-layout/css/styles.css";
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
