@@ -12,7 +12,7 @@ interface Props {
 }
 
 export const Grid = (props: Props) => {
-  const { children } = props
+  const { children } = props;
   return (
     <ResponsiveReactGridLayout
       {...props}
@@ -25,7 +25,6 @@ export const Grid = (props: Props) => {
     </ResponsiveReactGridLayout>
   );
 };
-
 
 Grid.defaultProps = {
   className: "layout",

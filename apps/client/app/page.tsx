@@ -9,15 +9,17 @@ export default function Home() {
       { i: "3", x: 0, y: 4, w: 2, h: 8 },
       { i: "4", x: 2, y: 4, w: 2, h: 8 },
     ],
-  }
+  };
   return (
     <div className={styles.page}>
       <main className={styles.main}>
         <Grid layouts={layouts}>
-          <div key={'1'} style={{backgroundColor:'red'}}>1</div>
-          <div key={'2'}>2</div>
-          <div key={'3'}>3</div>
-          <div key={'4'}>4</div>
+          <div key={"1"} style={{ backgroundColor: "red" }}>
+            1
+          </div>
+          <div key={"2"}>2</div>
+          <div key={"3"}>3</div>
+          <div key={"4"}>4</div>
         </Grid>
       </main>
     </div>
