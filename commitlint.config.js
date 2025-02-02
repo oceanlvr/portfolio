@@ -18,6 +18,18 @@ export default {
       ]
     ],
     'type-case': [2, 'always', 'lower-case'],
-    'subject-case': [0]
-  }
+    'subject-case': [0],
+    'footer-empty': [0],
+    'body-empty': [0]
+  },
+  prompt: {
+    questions: {
+      body: {
+        skip: true
+      },
+      footer: {
+        skip: true
+      }
+    }
+  },
 }; 

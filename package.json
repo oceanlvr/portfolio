@@ -17,7 +17,6 @@
     "@commitlint/cli": "^19.7.1",
     "@commitlint/config-conventional": "^19.7.1",
     "@commitlint/prompt-cli": "^19.7.1",
-    "lint-staged": "^15.4.3",
     "prettier": "^3.4.2",
     "simple-git-hooks": "^2.11.1",
     "turbo": "^2.4.0",
@@ -29,14 +28,7 @@
     "pnpm": ">=9"
   },
   "simple-git-hooks": {
-    "pre-commit": "lint-staged",
+    "pre-commit": "pnpm run format && git add . && pnpm run lint",
     "commit-msg": "pnpm commitlint --edit ${1}"
-  },
-  "lint-staged": {
-    "**/*.{js,ts,tsx}": [
-      "pnpm run format",
-      "git add .",
-      "pnpm run lint --"
-    ]
   }
 }
