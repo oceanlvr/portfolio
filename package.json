@@ -2,18 +2,20 @@
   "name": "portfolio",
   "private": true,
   "scripts": {
-    "commit": "git add . && commit",
-    "prepare": "simple-git-hooks",
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prepare": "simple-git-hooks",
+    "commit": "git add . && commit",
+    "gql": "pnpm run query",
     "upgrade": "pnpm up -i --recursive",
-    "gql": "pnpm run query"
+    "clean": "rimraf node_modules **/node_modules && rimraf dist .turbo .next coverage",
+    "optimize": "pnpm prune --no-optional && pnpm dedupe"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.6.1",
-    "@commitlint/config-conventional": "^19.6.0",
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
     "@commitlint/prompt-cli": "^19.7.1",
     "lint-staged": "^15.4.3",
     "prettier": "^3.4.2",
@@ -27,13 +29,12 @@
     "pnpm": ">=9"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm lint-staged",
+    "pre-commit": "lint-staged",
     "commit-msg": "pnpm commitlint --edit ${1}"
   },
   "lint-staged": {
     "**/*.{js,ts,tsx}": [
       "pnpm run format",
-      "git add .",
       "pnpm run lint --"
     ]
   }
